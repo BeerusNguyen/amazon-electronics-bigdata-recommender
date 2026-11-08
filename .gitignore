@@ -1,0 +1,40 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Data and generated artifacts (retain placeholder .gitkeep files)
+data/raw/*
+!data/raw/.gitkeep
+data/subsets/*
+!data/subsets/.gitkeep
+outputs/
+results/*
+!results/.gitkeep
+*.parquet
+*.csv.gz
+*.json.gz
+
+# Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+
+# Spark local files
+spark-warehouse/
+metastore_db/
+derby.log
+.checkpoints/
+.sparkStaging/
+
+# OS and IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,6 @@
+# Suggested local Spark settings. Confirm with your team before using on GCP.
+spark:
+  app_name: amazon-electronics-bigdata
+  master: local[2]
+  driver_memory: 4g
+  sql_shuffle_partitions: 8
