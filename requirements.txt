@@ -1,2 +1,10 @@
-pyspark==4.0.5
+pyspark==4.0.5     # engine xu ly (clean, profile, join report)
+pandas>=2.2,<3.0      # ghi bao cao CSV, writer du phong, join bang ratings_enriched. KHONG dung pandas 3.x: PySpark chua ho tro day du
+pyarrow>=15.0         # doc/ghi Parquet bang pyarrow (writer du phong, ratings_enriched), bat Arrow cho toPandas()
+ 
+# --- Cho bieu do benchmark (csv_parquet_benchmark.py); thieu thi script chi bo qua bieu do ---
 matplotlib>=3.7,<4
+ 
+# --- Chay test: pytest tests -q ---
+pytest>=8.0
+ 
