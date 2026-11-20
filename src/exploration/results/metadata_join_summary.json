@@ -1,0 +1,10 @@
+{
+  "ratings_file": "C:\\UIT\\Khoa_2023_Nam_4_HK1\\DuLieuLonTrenNenTangDamMay\\Final_Project\\data\\raw\\Electronics.csv",
+  "metadata_file": "C:\\UIT\\Khoa_2023_Nam_4_HK1\\DuLieuLonTrenNenTangDamMay\\Final_Project\\data\\raw\\meta_Electronics.json",
+  "rating_rows": 20994353,
+  "rating_items": 756489,
+  "metadata_items": 756077,
+  "matched_rating_rows": 20976794,
+  "row_match_rate": 0.9991636322395837,
+  "item_match_rate": 0.9994342283893091
+}

@@ -1,0 +1,1 @@
+user_raw,item_raw,rating_raw,timestamp_raw,malformed_csv,user_missing,item_missing,rating_missing,timestamp_missing,rating_invalid,timestamp_invalid

@@ -1,0 +1,37 @@
+{
+  "metadata_items": 756077,
+  "metadata_items_with_price": 300135,
+  "metadata_items_with_nonempty_title": 756063,
+  "metadata_items_with_nonempty_brand": 750731,
+  "metadata_items_with_nonempty_category": 756077,
+  "rated_items": 756489,
+  "rated_items_with_metadata": 756061,
+  "rated_item_match_rate": 0.9994342283893091,
+  "price": {
+    "priced_items": 300135,
+    "min_price": 0.01,
+    "max_price": 999.99,
+    "mean_price": 25.7733349659315,
+    "price_quantiles": {
+      "p25": 4.99,
+      "p50": 9.95,
+      "p75": 18.75,
+      "p95": 90.16,
+      "p99": 349.99
+    }
+  },
+  "content": {
+    "metadata_items": 756077,
+    "mean_title_length": 102.5143126956646,
+    "title_length_quantiles": {
+      "p50": 86,
+      "p90": 183,
+      "p99": 314
+    },
+    "mean_description_count": 1.5518538455739297,
+    "mean_feature_count": 3.926875172766795,
+    "mean_image_count": 2.779464260915224,
+    "mean_also_buy_count": 2.486402839922389,
+    "mean_also_view_count": 6.5976137351089905
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "source_url": "https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews",
+  "input": "C:\\UIT\\Khoa_2023_Nam_4_HK1\\DuLieuLonTrenNenTangDamMay\\Final_Project\\data\\raw\\Electronics.csv",
+  "input_files": [],
+  "ratings_file": "C:\\UIT\\Khoa_2023_Nam_4_HK1\\DuLieuLonTrenNenTangDamMay\\Final_Project\\data\\raw\\Electronics.csv",
+  "metadata_file": "C:\\UIT\\Khoa_2023_Nam_4_HK1\\DuLieuLonTrenNenTangDamMay\\Final_Project\\data\\raw\\meta_Electronics.json",
+  "input_version": "workspace-data",
+  "local_file_sha256": "1ce756643c0abed1b0d8a0738e67fc2510f3086d2bd52567942e18582dd01791",
+  "local_input_bytes": 876247561,
+  "schema": [
+    "user_id:string",
+    "item_id:string",
+    "rating:double",
+    "timestamp:unix_seconds"
+  ],
+  "has_header": false,
+  "timezone": "UTC",
+  "time_validity_bounds_epoch": [
+    631152000,
+    1795103654
+  ],
+  "started_at_utc": "2026-11-19T15:54:14.342972+00:00",
+  "spark_version": "3.5.3",
+  "master": "local[2]",
+  "shuffle_partitions": 32,
+  "code_sha256": null,
+  "total_rows": 20994353,
+  "valid_rows": 20994353,
+  "invalid_rows": 0,
+  "quality_counts_overlapping": {
+    "malformed_csv": 0,
+    "user_missing": 0,
+    "item_missing": 0,
+    "rating_missing": 0,
+    "timestamp_missing": 0,
+    "rating_invalid": 0,
+    "timestamp_invalid": 0,
+    "invalid": 0
+  },
+  "distinct_users": 9838676,
+  "distinct_items": 756489,
+  "unique_user_item_pairs": 20553480,
+  "exact_duplicate_excess_valid_rows": 426262,
+  "repeated_pair_excess_valid_rows": 440873,
+  "sparsity": 0.9999972384933816,
+  "density": 2.7615066183761527e-06,
+  "rating_statistics": {
+    "mean": 4.073685099988554,
+    "std_population": 1.3857917952033618
+  },
+  "min_time_utc": "1997-12-04T00:00:00+00:00",
+  "max_time_utc": "2018-10-05T00:00:00+00:00",
+  "rating_distribution": [
+    {
+      "rating": 1,
+      "count": 2415650,
+      "fraction": 0.1150618930719132
+    },
+    {
+      "rating": 2,
+      "count": 1139589,
+      "fraction": 0.054280739206395166
+    },
+    {
+      "rating": 3,
+      "count": 1529818,
+      "fraction": 0.07286807076169483
+    },
+    {
+      "rating": 4,
+      "count": 3306379,
+      "fraction": 0.157488968581218
+    },
+    {
+      "rating": 5,
+      "count": 12602917,
+      "fraction": 0.6003003283787788
+    }
+  ],
+  "interaction_statistics_distinct_pairs": {
+    "user": {
+      "min": 1,
+      "max": 598,
+      "mean": 2.089049380221485,
+      "single_interaction_entities": 6330952,
+      "quantiles_approx": {
+        "p50": 1.0,
+        "p90": 4.0,
+        "p99": 14.0
+      },
+      "quantile_relative_rank_error": 0.001
+    },
+    "item": {
+      "min": 1,
+      "max": 28530,
+      "mean": 27.16956888996403,
+      "single_interaction_entities": 245601,
+      "quantiles_approx": {
+        "p50": 3.0,
+        "p90": 39.0,
+        "p99": 405.0
+      },
+      "quantile_relative_rank_error": 0.001
+    }
+  },
+  "sanity_checks": {
+    "raw_equals_valid_plus_invalid": true,
+    "rating_counts_sum_to_valid": true,
+    "monthly_counts_sum_to_valid": true,
+    "unique_pairs_not_exceed_valid": true,
+    "hist_user_entities_match": true,
+    "hist_item_entities_match": true,
+    "sample_values_valid": true
+  },
+  "notes_file": "eda_summary.md#method-notes",
+  "elapsed_seconds": 696.405,
+  "duration_scope": "Spark startup, reads, EDA, checks, local hashing and plots; excludes final report writes and Spark shutdown"
+}
