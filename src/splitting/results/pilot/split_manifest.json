@@ -1,0 +1,24 @@
+{
+  "ratings_source": "Electronics.csv",
+  "ratings_sha256": "1ce756643c0abed1b0d8a0738e67fc2510f3086d2bd52567942e18582dd01791",
+  "spark_version": "3.5.3",
+  "master": "local[4]",
+  "seed": 42,
+  "user_cohort_basis_points": 50,
+  "validation_start_utc": "2017-02-01T00:00:00+00:00",
+  "test_start_utc": "2017-10-01T00:00:00+00:00",
+  "review_conflict_policy": "drop pairs with conflicting scores at the earliest timestamp",
+  "audit": {
+    "source_rows": 20994353,
+    "source_valid_rows": 20994353,
+    "cohort_valid_rows": 104491,
+    "source_invalid_rows": 0,
+    "valid_rows": 104491,
+    "exact_unique_rows": 102412,
+    "pairs_before_conflict": 102341,
+    "earliest_conflicts": 8,
+    "exact_duplicates_removed": 2079,
+    "additional_ratings_removed": 71,
+    "clean_pairs": 102333
+  }
+}
