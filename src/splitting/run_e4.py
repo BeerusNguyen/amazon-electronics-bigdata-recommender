@@ -14,6 +14,10 @@ from src.splitting.audit_e4 import run_audit
 from src.splitting.prepare_e4 import BOUNDARIES, SPLIT_NAMES, prepare
 
 
+DEFAULT_CSV = Path("data/raw/Electronics.csv")
+DEFAULT_OUTPUT = Path("data/processed/e4")
+
+
 def write_json(path, data):
     path.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
@@ -33,8 +37,6 @@ def source_hash(path):
 def prepare_run(spark, args):
     if not 1 <= args.cohort_bps <= 10000:
         raise ValueError("Cohort basis points must be in [1, 10000]")
-    if not args.csv.is_file():
-        raise FileNotFoundError(args.csv)
     args.out.mkdir(parents=True, exist_ok=False)
     frames, audit = prepare(spark, args.csv, args.seed, args.cohort_bps, args.out)
     stats = []
@@ -69,13 +71,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     prep = commands.add_parser("prepare")
-    prep.add_argument("--csv", type=Path, required=True)
-    prep.add_argument("--out", type=Path, required=True)
+    prep.add_argument("--csv", type=Path, default=DEFAULT_CSV, help=f"Input ratings CSV (default: {DEFAULT_CSV})")
+    prep.add_argument("--out", type=Path, default=DEFAULT_OUTPUT, help=f"New split directory (default: {DEFAULT_OUTPUT})")
     prep.add_argument("--cohort-bps", type=int, required=True)
     prep.add_argument("--seed", type=int, default=42)
     prep.add_argument("--shuffle-partitions", type=int, default=24)
     audit = commands.add_parser("audit")
-    audit.add_argument("--out", type=Path, required=True)
+    audit.add_argument("--out", type=Path, default=DEFAULT_OUTPUT, help=f"Existing split directory (default: {DEFAULT_OUTPUT})")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
@@ -84,6 +86,11 @@ def main():
         run_audit(frames, args.out)
         print(f"Saved cold-start audit and ID maps to {args.out / 'audit'}")
         return
+
+    if not args.csv.is_file():
+        parser.error(f"Ratings CSV not found: {args.csv}. Place it in {DEFAULT_CSV} or pass --csv.")
+    if args.out.exists():
+        parser.error(f"Output directory already exists: {args.out}. Pass --out for a new run.")
 
     spark = get_spark("E4-prepare", args.shuffle_partitions)
     try:

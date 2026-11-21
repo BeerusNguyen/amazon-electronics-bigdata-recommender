@@ -80,3 +80,12 @@ def test_e4_retains_earliest_interaction_and_flags_earliest_conflict(spark):
     assert (first.rating, first.timestamp, first.valid_rows, first.exact_unique_rows) == (2.0, 100, 3, 2)
     assert not first.conflict
     assert by_user["U2"].conflict
+
+
+def test_e3_history_retains_temporal_events_for_e4(spark):
+    rows = [("A1", "U1", 2.0, 100), ("A1", "U1", 2.0, 100), ("A1", "U1", 5.0, 200)]
+    df = spark.createDataFrame(rows, ["product_id", "user_id", "rating", "timestamp"])
+    history, report = clean_ratings(df, max_timestamp=300, pair_policy="history")
+    assert sorted(row.timestamp for row in history.collect()) == [100, 200]
+    assert report[-1]["rule"] == "preserve_rating_history"
+    assert first_interactions(history).first().timestamp == 100

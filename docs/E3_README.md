@@ -34,6 +34,8 @@ python src/etl/csv_parquet_benchmark.py --csv data/raw/Electronics.csv --repeats
 
 Thử nhanh trên một phần dữ liệu: thêm `--limit 200000` cho `read_ratings.py` / `clean_ratings.py`.
 
+Để bàn giao lịch sử rating cho chia tập theo thời gian, chạy `clean_ratings.py` với `--pair-policy history`. Chế độ này bỏ bản sao hoàn toàn và giữ các lần đánh giá khác nhau của cùng cặp user–item. Đầu ra mặc định là `data/processed/ratings_history` và `results/ratings_history_quality.csv`. Chế độ mặc định `latest` tiếp tục tạo bảng hiện trạng `ratings_clean` cho E3. Chính sách chọn lượt đầu tiên được áp dụng khi chia tập E4. [Giao thức E4](E4.README.md)
+
 ## Các file và quan hệ giữa chúng
 
 | File | Vai trò | Dùng / được dùng bởi |

@@ -11,6 +11,8 @@ de moi dong bi loai deu truy vet duoc. Doi chieu: raw - tong dong bi loai == cle
   R6  nhieu rating khac nhau cho cung (user,item) -> giu ban MOI NHAT
       (timestamp giam dan, tie-break rating giam dan => deterministic)
 
+Dung --pair-policy history de giu cac luot rating khac nhau cho chia tap theo thoi gian.
+
 Chay:
     python src/etl/clean_ratings.py --input data/raw/Electronics.csv \
         --output data/processed/ratings_clean --report results/ratings_quality.csv
@@ -38,8 +40,10 @@ def _blank(col: str):
     return F.col(col).isNull() | (F.trim(F.col(col)) == "")
 
 
-def clean_ratings(df: DataFrame, max_timestamp: int = None):
+def clean_ratings(df: DataFrame, max_timestamp: int = None, pair_policy: str = "latest"):
     """Tra ve (clean_df, report_rows). report_rows ghi vao ratings_quality.csv."""
+    if pair_policy not in ("latest", "history"):
+        raise ValueError("pair_policy must be latest or history")
     if max_timestamp is None:
         max_timestamp = int(time.time())
 
@@ -70,12 +74,17 @@ def clean_ratings(df: DataFrame, max_timestamp: int = None):
     apply(5, "exact_duplicates", "Loai dong trung hoan toan ca 4 cot (giu 1 ban)",
           current.dropDuplicates(["product_id", "user_id", "rating", "timestamp"]))
 
-    n_multi_pairs = (current.groupBy("user_id", "product_id").count()
-                     .filter(F.col("count") > 1).count())
-    w = Window.partitionBy("user_id", "product_id").orderBy(F.col("timestamp").desc(), F.col("rating").desc())
-    latest = current.withColumn("_rn", F.row_number().over(w)).filter(F.col("_rn") == 1).drop("_rn")
-    apply(6, "multi_rating_same_user_item",
-          f"Cung (user,item) co nhieu rating khac nhau ({n_multi_pairs} cap): giu ban moi nhat", latest)
+    if pair_policy == "latest":
+        n_multi_pairs = (current.groupBy("user_id", "product_id").count()
+                         .filter(F.col("count") > 1).count())
+        w = Window.partitionBy("user_id", "product_id").orderBy(F.col("timestamp").desc(), F.col("rating").desc())
+        latest = current.withColumn("_rn", F.row_number().over(w)).filter(F.col("_rn") == 1).drop("_rn")
+        apply(6, "multi_rating_same_user_item",
+              f"Cung (user,item) co nhieu rating khac nhau ({n_multi_pairs} cap): giu ban moi nhat", latest)
+    else:
+        report.append(dict(step=6, rule="preserve_rating_history", rows_before=report[-1]["rows_after"],
+                           rows_after=report[-1]["rows_after"], rows_removed=0,
+                           description="Giu lich su rating sau khi bo ban sao hoan toan"))
 
     n_clean = report[-1]["rows_after"]
     removed = sum(r["rows_removed"] for r in report)
@@ -90,8 +99,9 @@ def parse_args():
     p.add_argument("--input-format", default="csv", choices=["csv", "parquet"])
     p.add_argument("--header", default="auto", choices=["auto", "true", "false"])
     p.add_argument("--limit", type=int, default=None, help="Chi xu ly N dong dau (pilot/dev)")
-    p.add_argument("--output", default="data/processed/ratings_clean")
-    p.add_argument("--report", default="results/ratings_quality.csv")
+    p.add_argument("--output", help="Default: data/processed/ratings_clean or ratings_history")
+    p.add_argument("--report", help="Default: results/ratings_quality.csv or ratings_history_quality.csv")
+    p.add_argument("--pair-policy", default="latest", choices=["latest", "history"])
     p.add_argument("--num-output-files", type=int, default=8)
     p.add_argument("--writer", default="auto", choices=["auto", "spark", "pandas"])
     return p.parse_args()
@@ -100,11 +110,14 @@ def parse_args():
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     args = parse_args()
+    history = args.pair_policy == "history"
+    args.output = args.output or ("data/processed/ratings_history" if history else "data/processed/ratings_clean")
+    args.report = args.report or ("results/ratings_history_quality.csv" if history else "results/ratings_quality.csv")
     spark = get_spark("clean_ratings")
     df = read_ratings(spark, args.input, args.input_format, header_arg(args.header))
     if args.limit:
         df = df.limit(args.limit)
-    clean, report = clean_ratings(df)
+    clean, report = clean_ratings(df, pair_policy=args.pair_policy)
 
     # ghi report truoc: neu buoc ghi Parquet loi, so lieu audit van con
     os.makedirs(os.path.dirname(args.report) or ".", exist_ok=True)
