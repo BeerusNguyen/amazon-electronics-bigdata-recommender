@@ -1,0 +1,7 @@
+phase,method,train_seconds,inference_seconds,end_to_end_seconds,note,hardware
+validation,popularity,,,75.13861984,"fit, Top-10 and metrics in one E5 call","local[2], 2 vCPU, 8 GB RAM"
+validation,als,23.17049175,73.56984757,130.994347,Validation: generate (model reloaded); Test: test-final incl. refit,"local[2], 2 vCPU, 8 GB RAM"
+validation,als_plus_popularity,23.17049175,83.81068711,130.994347,same run as ALS only plus fallback and assembly,"local[2], 2 vCPU, 8 GB RAM"
+test,popularity,,,78.59273226,"fit, Top-10 and metrics in one E5 call","local[2], 2 vCPU, 8 GB RAM"
+test,als,,125.8059763,249.9325267,Validation: generate (model reloaded); Test: test-final incl. refit,"local[2], 2 vCPU, 8 GB RAM"
+test,als_plus_popularity,,138.9009481,249.9325267,same run as ALS only plus fallback and assembly,"local[2], 2 vCPU, 8 GB RAM"

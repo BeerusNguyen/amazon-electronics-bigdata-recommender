@@ -1,0 +1,109 @@
+phase,check,subject,value,status,detail
+validation,temporal_order,history vs held-out,1,PASS,"history ends 2017-01-31, held-out starts 2017-02-01"
+validation,temporal_shared_pairs,history vs held-out,0,PASS,user-item pairs present in both periods
+validation,integrity_duplicate_user_item,random,0,PASS,violation count
+validation,integrity_duplicate_user_rank,random,0,PASS,violation count
+validation,integrity_non_contiguous_rank_users,random,0,PASS,violation count
+validation,integrity_lists_longer_than_k,random,0,PASS,violation count
+validation,integrity_seen_items_recommended,random,0,PASS,violation count
+validation,integrity_items_outside_history_catalog,random,0,PASS,violation count
+validation,integrity_held_out_only_items_recommended,random,0,PASS,violation count
+validation,integrity_users_outside_target_set,random,0,PASS,violation count
+validation,integrity_null_keys,random,0,PASS,violation count
+validation,integrity_duplicate_user_item,popularity,0,PASS,violation count
+validation,integrity_duplicate_user_rank,popularity,0,PASS,violation count
+validation,integrity_non_contiguous_rank_users,popularity,0,PASS,violation count
+validation,integrity_lists_longer_than_k,popularity,0,PASS,violation count
+validation,integrity_seen_items_recommended,popularity,0,PASS,violation count
+validation,integrity_items_outside_history_catalog,popularity,0,PASS,violation count
+validation,integrity_held_out_only_items_recommended,popularity,0,PASS,violation count
+validation,integrity_users_outside_target_set,popularity,0,PASS,violation count
+validation,integrity_null_keys,popularity,0,PASS,violation count
+validation,e5_cross_check_recall_at_k,popularity,8.67361738e-19,PASS,E6 0.005992012763 vs E5 0.005992012763
+validation,e5_cross_check_ndcg_at_k,popularity,3.469446952e-18,PASS,E6 0.002352743015 vs E5 0.002352743015
+validation,e5_cross_check_relevant_users,popularity,0,PASS,E6 55265 vs E5 55265
+validation,e5_cross_check_user_coverage,popularity,0,PASS,E6 1 vs E5 1
+validation,e5_cross_check_full_k_coverage,popularity,0,PASS,E6 1 vs E5 1
+validation,integrity_duplicate_user_item,als,0,PASS,violation count
+validation,integrity_duplicate_user_rank,als,0,PASS,violation count
+validation,integrity_non_contiguous_rank_users,als,0,PASS,violation count
+validation,integrity_lists_longer_than_k,als,0,PASS,violation count
+validation,integrity_seen_items_recommended,als,0,PASS,violation count
+validation,integrity_items_outside_history_catalog,als,0,PASS,violation count
+validation,integrity_held_out_only_items_recommended,als,0,PASS,violation count
+validation,integrity_users_outside_target_set,als,0,PASS,violation count
+validation,integrity_null_keys,als,0,PASS,violation count
+validation,e5_cross_check_recall_at_k,als,0,PASS,E6 4.478422148e-05 vs E5 4.478422148e-05
+validation,e5_cross_check_ndcg_at_k,als,0,PASS,E6 3.396441736e-05 vs E5 3.396441736e-05
+validation,e5_cross_check_relevant_users,als,0,PASS,E6 55265 vs E5 55265
+validation,e5_cross_check_user_coverage,als,0,PASS,E6 0.3863235957 vs E5 0.3863235957
+validation,e5_cross_check_full_k_coverage,als,0,PASS,E6 0.3863235957 vs E5 0.3863235957
+validation,integrity_duplicate_user_item,als_plus_popularity,0,PASS,violation count
+validation,integrity_duplicate_user_rank,als_plus_popularity,0,PASS,violation count
+validation,integrity_non_contiguous_rank_users,als_plus_popularity,0,PASS,violation count
+validation,integrity_lists_longer_than_k,als_plus_popularity,0,PASS,violation count
+validation,integrity_seen_items_recommended,als_plus_popularity,0,PASS,violation count
+validation,integrity_items_outside_history_catalog,als_plus_popularity,0,PASS,violation count
+validation,integrity_held_out_only_items_recommended,als_plus_popularity,0,PASS,violation count
+validation,integrity_users_outside_target_set,als_plus_popularity,0,PASS,violation count
+validation,integrity_null_keys,als_plus_popularity,0,PASS,violation count
+validation,e5_cross_check_recall_at_k,als_plus_popularity,4.33680869e-19,PASS,E6 0.003746742818 vs E5 0.003746742818
+validation,e5_cross_check_ndcg_at_k,als_plus_popularity,2.168404345e-19,PASS,E6 0.001465333662 vs E5 0.001465333662
+validation,e5_cross_check_relevant_users,als_plus_popularity,0,PASS,E6 55265 vs E5 55265
+validation,e5_cross_check_user_coverage,als_plus_popularity,0,PASS,E6 1 vs E5 1
+validation,e5_cross_check_full_k_coverage,als_plus_popularity,0,PASS,E6 1 vs E5 1
+test,temporal_order,history vs held-out,1,PASS,"history ends 2017-09-30, held-out starts 2017-10-01"
+test,temporal_shared_pairs,history vs held-out,0,PASS,user-item pairs present in both periods
+test,integrity_duplicate_user_item,random,0,PASS,violation count
+test,integrity_duplicate_user_rank,random,0,PASS,violation count
+test,integrity_non_contiguous_rank_users,random,0,PASS,violation count
+test,integrity_lists_longer_than_k,random,0,PASS,violation count
+test,integrity_seen_items_recommended,random,0,PASS,violation count
+test,integrity_items_outside_history_catalog,random,0,PASS,violation count
+test,integrity_held_out_only_items_recommended,random,0,PASS,violation count
+test,integrity_users_outside_target_set,random,0,PASS,violation count
+test,integrity_null_keys,random,0,PASS,violation count
+test,integrity_duplicate_user_item,popularity,0,PASS,violation count
+test,integrity_duplicate_user_rank,popularity,0,PASS,violation count
+test,integrity_non_contiguous_rank_users,popularity,0,PASS,violation count
+test,integrity_lists_longer_than_k,popularity,0,PASS,violation count
+test,integrity_seen_items_recommended,popularity,0,PASS,violation count
+test,integrity_items_outside_history_catalog,popularity,0,PASS,violation count
+test,integrity_held_out_only_items_recommended,popularity,0,PASS,violation count
+test,integrity_users_outside_target_set,popularity,0,PASS,violation count
+test,integrity_null_keys,popularity,0,PASS,violation count
+test,e5_cross_check_recall_at_k,popularity,3.469446952e-18,PASS,E6 0.008577104244 vs E5 0.008577104244
+test,e5_cross_check_ndcg_at_k,popularity,6.071532166e-18,PASS,E6 0.005935883691 vs E5 0.005935883691
+test,e5_cross_check_relevant_users,popularity,0,PASS,E6 55347 vs E5 55347
+test,e5_cross_check_user_coverage,popularity,0,PASS,E6 1 vs E5 1
+test,e5_cross_check_full_k_coverage,popularity,0,PASS,E6 1 vs E5 1
+test,integrity_duplicate_user_item,als,0,PASS,violation count
+test,integrity_duplicate_user_rank,als,0,PASS,violation count
+test,integrity_non_contiguous_rank_users,als,0,PASS,violation count
+test,integrity_lists_longer_than_k,als,0,PASS,violation count
+test,integrity_seen_items_recommended,als,0,PASS,violation count
+test,integrity_items_outside_history_catalog,als,0,PASS,violation count
+test,integrity_held_out_only_items_recommended,als,0,PASS,violation count
+test,integrity_users_outside_target_set,als,0,PASS,violation count
+test,integrity_null_keys,als,0,PASS,violation count
+test,e5_cross_check_recall_at_k,als,0,PASS,E6 1.806782662e-05 vs E5 1.806782662e-05
+test,e5_cross_check_ndcg_at_k,als,0,PASS,E6 6.435889698e-06 vs E5 6.435889698e-06
+test,e5_cross_check_relevant_users,als,0,PASS,E6 55347 vs E5 55347
+test,e5_cross_check_user_coverage,als,0,PASS,E6 0.3857670413 vs E5 0.3857670413
+test,e5_cross_check_full_k_coverage,als,0,PASS,E6 0.3857670413 vs E5 0.3857670413
+test,integrity_duplicate_user_item,als_plus_popularity,0,PASS,violation count
+test,integrity_duplicate_user_rank,als_plus_popularity,0,PASS,violation count
+test,integrity_non_contiguous_rank_users,als_plus_popularity,0,PASS,violation count
+test,integrity_lists_longer_than_k,als_plus_popularity,0,PASS,violation count
+test,integrity_seen_items_recommended,als_plus_popularity,0,PASS,violation count
+test,integrity_items_outside_history_catalog,als_plus_popularity,0,PASS,violation count
+test,integrity_held_out_only_items_recommended,als_plus_popularity,0,PASS,violation count
+test,integrity_users_outside_target_set,als_plus_popularity,0,PASS,violation count
+test,integrity_null_keys,als_plus_popularity,0,PASS,violation count
+test,e5_cross_check_recall_at_k,als_plus_popularity,8.67361738e-19,PASS,E6 0.00555221399 vs E5 0.00555221399
+test,e5_cross_check_ndcg_at_k,als_plus_popularity,4.33680869e-19,PASS,E6 0.003782718134 vs E5 0.003782718134
+test,e5_cross_check_relevant_users,als_plus_popularity,0,PASS,E6 55347 vs E5 55347
+test,e5_cross_check_user_coverage,als_plus_popularity,0,PASS,E6 1 vs E5 1
+test,e5_cross_check_full_k_coverage,als_plus_popularity,0,PASS,E6 1 vs E5 1
+both,same_paired_conclusions,NDCG@10,1,PASS,5/5 agree; ties: als = random
+validation,retrain_reproduces_e5,seed 42,0,PASS,retrained NDCG 0.0014653337 vs E5 0.0014653337

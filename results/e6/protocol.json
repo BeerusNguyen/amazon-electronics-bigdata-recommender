@@ -1,0 +1,50 @@
+{
+  "validation": {
+    "k": 10,
+    "relevance_threshold": 4,
+    "target_users": 73221,
+    "history_pairs": 819984,
+    "catalog_items": 190150,
+    "held_out_pairs": 106147,
+    "relevant_pairs": 80126,
+    "removed_as_seen_in_history": 0,
+    "ground_truth_pairs": 80126,
+    "scored_users": 55265,
+    "cold_item_targets": 13497,
+    "targets_of_cold_users": 42272,
+    "share_five_star_targets": 0.8282704740034446,
+    "recall_ceiling": 0.8288025348945465,
+    "ndcg_ceiling": 0.8371840101105368,
+    "users_with_any_reachable_target": 47470,
+    "temporal": {
+      "history_end": "2017-01-31",
+      "held_out_start": "2017-02-01",
+      "ordered": true,
+      "shared_pairs": 0
+    }
+  },
+  "test": {
+    "k": 10,
+    "relevance_threshold": 4,
+    "target_users": 75009,
+    "history_pairs": 926131,
+    "catalog_items": 203850,
+    "held_out_pairs": 105306,
+    "relevant_pairs": 77935,
+    "removed_as_seen_in_history": 0,
+    "ground_truth_pairs": 77935,
+    "scored_users": 55347,
+    "cold_item_targets": 11320,
+    "targets_of_cold_users": 41591,
+    "share_five_star_targets": 0.8384936164752679,
+    "recall_ceiling": 0.8544657260948038,
+    "ndcg_ceiling": 0.8614898581255533,
+    "users_with_any_reachable_target": 48700,
+    "temporal": {
+      "history_end": "2017-09-30",
+      "held_out_start": "2017-10-01",
+      "ordered": true,
+      "shared_pairs": 0
+    }
+  }
+}

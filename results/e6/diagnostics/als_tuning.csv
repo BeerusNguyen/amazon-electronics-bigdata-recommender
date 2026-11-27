@@ -1,0 +1,5 @@
+trial,rank,max_iter,reg_param,seed,implicit_prefs,recall_at_k,ndcg_at_k,selected
+1,8,5,0.05,42,False,0.003746742818,0.001465333662,True
+2,8,5,0.1,42,False,0.003762575623,0.001460761106,False
+3,16,5,0.05,42,False,0.003753226728,0.001450187105,False
+4,16,5,0.1,42,False,0.003747195183,0.001452992729,False

@@ -1,0 +1,11 @@
+phase,als_status,hybrid_list_source,users,share_of_targets,coverage_ge1_before,coverage_ge1_after,coverage_full_before,coverage_full_after,fallback_items_per_user,users_rescued_from_zero,scored_users,hybrid_recall,hybrid_ndcg
+validation,full_list,ALS,28287,0.3863235957,1,1,1,1,0,0,22503,0.0001099853353,8.341303496e-05
+validation,short_list,Mixed,0,0,0,0,0,0,0,0,0,0,0
+validation,known_unserved,Popularity,0,0,0,0,0,0,0,0,0,0,0
+validation,unknown_user,Popularity,44934,0.6136764043,0,1,0,1,10,44934,32762,0.00624469635,0.002414523573
+validation,all,all,73221,1,0.3863235957,1,0.3863235957,1,6.136764043,44934,55265,0.003746742818,0.001465333662
+test,full_list,ALS,28936,0.3857670413,1,1,1,1,0,0,22433,4.45771854e-05,1.587871382e-05
+test,short_list,Mixed,0,0,0,0,0,0,0,0,0,0,0
+test,known_unserved,Popularity,0,0,0,0,0,0,0,0,0,0,0
+test,unknown_user,Popularity,46073,0.6142329587,0,1,0,1,10,46073,32914,0.009306021381,0.006350060563
+test,all,all,75009,1,0.3857670413,1,0.3857670413,1,6.142329587,46073,55347,0.00555221399,0.003782718134

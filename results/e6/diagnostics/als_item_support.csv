@@ -1,0 +1,5 @@
+phase,method,slots,median_item_history_ratings,share_items_with_le_3_ratings,mean_item_positive_count,mean_score
+validation,popularity,732210,657,0,626.885455,626.885455
+validation,als,282870,5,0.321649521,5.841991021,9.242142451
+test,popularity,750090,741,0,680.7320268,680.7320268
+test,als,289360,5,0.3200822505,5.877356926,9.559059038
