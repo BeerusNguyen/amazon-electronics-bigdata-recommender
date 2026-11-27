@@ -1,0 +1,19 @@
+{
+  "top_k": 10,
+  "candidate_pool": 100,
+  "candidate_multiplier": 5,
+  "relevance_threshold": 4,
+  "als": {
+    "rank": 16,
+    "max_iter": 5,
+    "reg_param": 0.1,
+    "seed": 42,
+    "implicit_prefs": false,
+    "alpha": 1.0
+  },
+  "tuning_grid": {
+    "rank": [8, 16],
+    "max_iter": [5],
+    "reg_param": [0.05, 0.1]
+  }
+}
